@@ -32,7 +32,7 @@ const Login = () => {
       localStorage.setItem("token", token);
       localStorage.setItem("email", email);
 
-      navigate("/"); // redirect to home page
+      navigate("/"); 
     } catch (err) {
       console.error(err);
     }

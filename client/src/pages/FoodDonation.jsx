@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./FoodDonation.css";
+import { useNavigate } from "react-router-dom";
+import "./DonateNow.css";
 
 function FoodDonation() {
+  const navigate = useNavigate(); 
   const [foodName, setFoodName] = useState("");
   const [foodTag, setFoodTag] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -10,10 +12,10 @@ function FoodDonation() {
   const [address, setAddress] = useState("");
 
   const email = localStorage.getItem("email");
-  console.log(email);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     const formData = {
       foodName,
       foodTag,
@@ -22,15 +24,21 @@ function FoodDonation() {
       address,
       email,
     };
-    console.log(formData);
-    // Send the form data to the server using fetch or Axios
-    try {
-      const response = await axios.post("http://localhost:3000/fooddonation", {
-        formData,
-      });
 
-      console.log(response.data);
-      return response.data;
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/fooddonation",
+        { formData }
+      );
+
+      if(response.status===formData){
+         alert("Data save successfully");
+         navigate("//dashboard/food");
+      }else{
+         alert("complete all fields");
+      }
+
+      
     } catch (error) {
       console.error(error);
     }
@@ -41,6 +49,7 @@ function FoodDonation() {
       <div className="foodDonation_heading">
         <h1 className="heading-foodd">FOOD DONATION FORM</h1>
       </div>
+
       <div className="foodDonation_wrapper">
         <form className="food-donation_form" onSubmit={handleSubmit}>
           <div className="form_element">
@@ -48,19 +57,18 @@ function FoodDonation() {
             <input
               type="text"
               id="foodName"
-              name="foodName"
               value={foodName}
-              onChange={(event) => setFoodName(event.target.value)}
+              onChange={(e) => setFoodName(e.target.value)}
             />
           </div>
+
           <div className="form_element">
             <label htmlFor="quantity">Quantity</label>
             <input
               type="number"
               id="quantity"
-              name="quantity"
               value={quantity}
-              onChange={(event) => setQuantity(event.target.value)}
+              onChange={(e) => setQuantity(e.target.value)}
             />
           </div>
 
@@ -68,19 +76,14 @@ function FoodDonation() {
             <label htmlFor="foodTag">Food type or tag</label>
             <select
               id="foodTag"
-              name="foodTag"
               value={foodTag}
-              onChange={(event) => setFoodTag(event.target.value)}
+              onChange={(e) => setFoodTag(e.target.value)}
             >
-              <option value="" disabled selected>
+              <option value="" disabled>
                 Choose type
               </option>
-              <option value="veg" style={{ color: "black" }}>
-                Veg
-              </option>
-              <option value="nonveg" style={{ color: "black" }}>
-                Non Veg
-              </option>
+              <option value="veg">Veg</option>
+              <option value="nonveg">Non Veg</option>
             </select>
           </div>
 
@@ -89,21 +92,21 @@ function FoodDonation() {
             <input
               type="date"
               id="expiryDate"
-              name="expiryDate"
               value={expiryDate}
-              onChange={(event) => setExpiryDate(event.target.value)}
+              onChange={(e) => setExpiryDate(e.target.value)}
             />
           </div>
+
           <div className="form_element">
             <label htmlFor="address">Address</label>
             <input
-              type="address"
+              type="text"
               id="address"
-              name="address"
               value={address}
-              onChange={(event) => setAddress(event.target.value)}
+              onChange={(e) => setAddress(e.target.value)}
             />
           </div>
+
           <button id="foodDonation_submit-btn" type="submit">
             Submit
           </button>

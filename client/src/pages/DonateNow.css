@@ -1,0 +1,74 @@
+/* Main container */
+.donate-container {
+  max-width: 420px;
+  margin: 50px auto;
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading */
+.donate-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* Form groups */
+.donate-form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+/* Labels */
+.donate-form label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+/* Inputs */
+.donate-form input {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.donate-form input:focus {
+  border-color: #27ae60;
+  box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.2);
+}
+
+/* Submit button */
+.donate-form button {
+  margin-top: 10px;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  background-color: #27ae60;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.donate-form button:hover {
+  background-color: #219150;
+  transform: translateY(-2px);
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .donate-container {
+    margin: 20px;
+    padding: 20px;
+  }
+}

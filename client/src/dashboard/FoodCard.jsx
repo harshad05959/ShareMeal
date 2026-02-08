@@ -23,7 +23,7 @@ const FoodCard = ({ name, quantity, date, address, tag }) => {
         </p>
         <img
           className="foodcard-img"
-          src={`https://source.unsplash.com/random/?${name}`}
+          src="https://i.pinimg.com/736x/83/75/df/8375df279bf092dfff6b7cfdb4e25664.jpg"
           alt="Card Image"
         />
         <div class="card-content">

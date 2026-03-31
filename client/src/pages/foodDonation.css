@@ -1,103 +1,109 @@
+/* Page Background */
 .foodDonation_container {
-    text-align: center;
-    justify-content: space-around;
-    margin-right: 2rem;
-    background-color: #bebebe;
-    /* border:2px solid #6B5B95; */
-    padding: 2rem;
-    /* border-radius: 20px; */
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    /* background: linear-gradient(#253D5B, #67697C); */
-    background: linear-gradient(#3D405B, #575c85);
-    /* background-color: #243b55; */
-
-   cursor: pointer;
-    height: 100vh;
-    display: flex;
-
-
-
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa, #e8ecf3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
 }
 
-.foodDonation_heading {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 2rem;
-    color: white;
-    margin: 2rem;
-    margin-bottom: 5rem;
-
+/* Heading */
+.foodDonation_heading h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
 }
 
-.food-donation_form {
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: space-around;
-}
-
-.form_element {
-    display: flex;
-    width: auto;
-    height: 6rem;
-    flex-direction: column;
-
-
-}
-
-.form_element label {
-    display: block;
-    margin-bottom: 2px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: white;
-    text-align: left;
-}
-
-#foodName,
-#quantity,
-#expiryDate,
-#address,
-#foodTag {
-    width: 100%;
-
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-    background: transparent
-}
-
-#foodDonation_submit-btn {
-    width: 30%;
-    margin: 20px 0;
-    height: 50px;
-
-    border: 2px solid #ba6464;
-    background-color: transparent;
-    color: #ba6464;
-    font-size: 1.5rem;
-    font-weight: 600;
-    transition: 0.5s;
-    margin: auto;
-    cursor: pointer;
-}
-
+/* Card Wrapper */
 .foodDonation_wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 500px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, .5);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
-    border-radius: 10px;
+  width: 100%;
+  max-width: 550px;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.foodDonation_wrapper:hover {
+  transform: translateY(-5px);
+}
+
+/* Form Layout */
+.food-donation_form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Each Field */
+.form_element {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.form_element label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* Inputs & Select */
+.form_element input,
+.form_element select {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #fafafa;
+}
+
+/* Focus Effect */
+.form_element input:focus,
+.form_element select:focus {
+  outline: none;
+  border-color: #000;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Submit Button */
+.food-donation_form button {
+  margin-top: 10px;
+  padding: 14px;
+  background: linear-gradient(135deg, #000000, #333333);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.food-donation_form button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #333333, #000000);
+}
+
+.food-donation_form button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .foodDonation_wrapper {
+    padding: 25px;
+  }
+
+  .foodDonation_heading h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
 }

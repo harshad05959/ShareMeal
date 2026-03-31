@@ -6,39 +6,51 @@ const router = Router();
 
 router.post("/fooddonation", async (req, res) => {
   try {
-    const { foodName, foodTag, quantity, expiryDate, address, email } =
-      req.body.formData;
+    const {
+      foodName,
+      foodTag,
+      quantity,
+      expiryDate,
+      address,
+      email,
+    } = req.body;
 
-    // validation
+    // Validation
     if (!foodName || !foodTag || !quantity || !expiryDate || !address || !email) {
       return res.status(400).json({
         message: "Complete all fields of the form",
       });
     }
 
-    // find user
+    // Find user
     const user = await User.findOne({ email });
+
     if (!user) {
       return res.status(404).json({
-        message: "User not found",
+        message: "User not found. Please enter a registered email address.",
       });
     }
 
-    // create food donation
+    // Create donation
     const food = await Food.create({
       foodName,
       foodTag,
       quantity,
       expiryDate,
       address,
+      email,
       user: user._id,
     });
 
-    // link food to user
+    // Push food into user
     user.food.push(food._id);
     await user.save();
 
-    res.status(201).json(food);
+    res.status(201).json({
+      message: "Food donation created successfully",
+      food,
+    });
+
   } catch (error) {
     console.error(error);
     res.status(500).json({

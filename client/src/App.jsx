@@ -15,6 +15,7 @@ import Navbar from "./components/Navbar/Navbar";
 import AboutUs from "./components/About Us/AboutUs";
 import Vision from "./components/Our Visison/Vision";
 import Contact from "./pages/Contact";
+import Apply from "./pages/Apply";
 function App() {
   const token = localStorage.getItem("token");
   const { pathname } = useLocation();
@@ -39,6 +40,8 @@ function App() {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/ourwork" element={<Vision />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/apply" element={<Apply />} />
+
 
         {token ? (
           <Route element={<Layout />}>

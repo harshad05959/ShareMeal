@@ -85,6 +85,7 @@ const Food = () => {
             date={item.expiryDate}
             address={item.address}
             tag={item.foodTag}
+            ema={item.email}
           />
         ))}
       </div>
